@@ -1,0 +1,79 @@
+#montante
+#Montante=Capital inicial(valor)*(1+Taxa de juros)sobre Tempo
+
+
+#M=C(1+taxa de juros)^tempo
+
+    
+titulo1="Calculadora_de_Montante".center(80)
+titulo2=titulo1.upper()
+print(titulo2.replace(" ","_"))
+
+loop=0
+while loop < 1:
+
+    print(" ")
+
+    capital_inicial=float(input("informe a quantidade de capital inicial que deseja investir: ".upper()))
+
+
+    taxa_juros=int(input("informe o valor da taxa de juros(não coloque '%'): ".upper()))#).isalnum()
+
+    taxa_filhadumaputa=taxa_juros/100    
+    #while taxa_juros == "False" or False:
+            #print("erro")
+        
+    print(" ")
+        
+    opcao_tempo=int(input("Planeja visualizar em Meses ou Anos?\n"
+    "\n[1]-Mesês\n"
+    "\n[2]-Anos\n"
+    "\ninforme com o numero correspondente qual o tempo que deseja ultilizar: ".upper()))
+
+    while opcao_tempo>2 or opcao_tempo<1 :
+        print("  ")
+        print("\033[31m"+"por favor coloque um numero valido".upper())
+
+        print("  ")
+        opcao_tempo=int(input("\033[0;0m"+"Planeja visualizar em dias, Meses ou Anos?\n"
+        "\n[1]-Mesês\n"
+        "\n[2]-Anos\n"
+        "\ninforme com o numero correspondente qual o tempo que deseja ultilizar: ".upper()))
+    
+    print(" ")
+    if opcao_tempo==1:
+        tempo=int(input("Informe quantos mesês deseja investir: ".upper()))
+            
+        montante=capital_inicial*(1+taxa_filhadumaputa)**tempo 
+        
+        print("  ")
+        print("o valor que você terá em {} mesês é ".format(tempo).upper()+"\033[32m"+"{:.2f} reais".format(montante).upper())            
+        print("\033[0;0m")
+            
+        
+    if opcao_tempo==2:
+        tempo=int(input("Informe quantos anos deseja investir: ".upper()))
+        tempo_meses=tempo*12
+
+        montante=(capital_inicial*(1+taxa_filhadumaputa)**tempo_meses)
+        
+        print("  ")
+        print("o valor que você terá em {} anos é ".format(tempo).upper()+"\033[32m"+"{:.2f} reais".format(montante).upper())            
+        print("\033[0;0m")
+
+    novamente=int(input("deseja fazer com outros valores? \n"
+                            "\n[1]-sim\n"
+                            "\n[2]-não\n"
+                           "\nEscolha uma opção: ".upper()))
+    while novamente>2 or novamente<1 :
+            print("  ")
+            print("\033[31m"+"por favor coloque um numero valido".upper())
+            
+            novamente=int(input("\033[0;0m"+"deseja fazer com outros valores? \n"
+                            "\n[1]-sim\n"
+                            "\n[2]-não\n"
+                            "\nEscolha uma opção: ".upper()))
+    if novamente == 2:
+        loop=loop + 1
+        print("\033[32m"+"programa encerrado".upper())
+        print("\033[0;0m")
